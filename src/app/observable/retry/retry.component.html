@@ -1,0 +1,55 @@
+<div class="container-fluid my-4">
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Take</div>
+                <div class="card-body">
+                    <button #myTestDiv class="btn-success"> Add</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Retry oprator</div>
+                <div class="card-body">
+                    <table class="tabel" *ngIf="personData!=null">
+                        <tr>
+                            <th>Id : </th>
+                            <td>{{ personData.id}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>User Id : </th>
+                            <td>{{ personData.userId }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Title : </th>
+                            <td>{{ personData.title}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>completed : </th>
+                            <td>{{ personData.completed }}</td>
+                        </tr>
+
+
+                    </table>
+
+                    <br>
+                    <button class="btn btn-primary" type="button" (click)="showdata()">
+                      <span *ngIf="fetching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                     {{fetching? 'Fetching.......': 'fetching'}}
+                    </button>
+
+                    <div [ngClass]="{'text-danger': status=='fetch Details' ,
+                    'text-success': status=='fetched ', 'text-warning': status=='error ' }">{{ status }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
